@@ -38,10 +38,8 @@ def getAddressDetails():
 
     google_geocode_base_url = GOOGLE_GEOCODE_API_URL
     url = f'{google_geocode_base_url}/json?address={urllib.parse.quote(address)}&key={GOOGLE_GEOCODE_API_SECRET_KEY}'
-    print(url)
 
     response = requests.request("GET", url, headers={}, data={})
-    print(response)
     response = response.json()
 
     if len(response.get("results")) <= 0:
